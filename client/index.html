@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Goal Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+</head>
+
+<body onload="getGoals()">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+        <a class="navbar-brand" href="#">Goal Tracker</a>
+
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <input data-bind="value: goalInputName" type="text" id="name" class="form-conrol" placeholder="Enter Goal">
+            </div>
+            <div class="col-md-3">
+                <select data-bind="value: goalInputType, options:types, optionsCaption: 'Select type'" id="type" class="form-control"></select>
+            </div>
+            <div class="col-md-3">
+                    <input data-bind="value: goalInputDeadline" type="date" id="deadline" class="form-conrol" placeholder="Enter Goal">
+            </div>
+            <div class="col-md-3">
+                <button data-bind="click: addGoal" class="btn btn-primary">Add Goal</button>
+                <button class="btn btn-danger">Delete Goal</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: goals">
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: deadline"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        
+</body>
+
+</html>
