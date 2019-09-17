@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Goal Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+        
 </head>
 
 <body onload="getGoals()">
@@ -20,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <input data-bind="value: goalInputName" type="text" id="name" class="form-conrol" placeholder="Enter Goal">
+                <input data-bind="value: goalInputName, valueUpdate:'keypress'" type="text" id="name" class="form-conrol" placeholder="Enter Goal">
             </div>
             <div class="col-md-3">
                 <select data-bind="value: goalInputType, options:types, optionsCaption: 'Select type'" id="type" class="form-control"></select>
@@ -29,8 +30,8 @@
                     <input data-bind="value: goalInputDeadline" type="date" id="deadline" class="form-conrol" placeholder="Enter Goal">
             </div>
             <div class="col-md-3">
-                <button data-bind="click: addGoal" class="btn btn-primary">Add Goal</button>
-                <button class="btn btn-danger">Delete Goal</button>
+                <button data-bind="click: addGoal, enable:goalInputName " class="bcheckboxtn btn-primary">Add Goal</button>
+                <button data-bind="click: deleteSelected, enable: canEdit" class="btn btn-danger">Delete Goal</button>
             </div>
         </div>
         <div class="row">
@@ -46,7 +47,7 @@
                     </thead>
                     <tbody data-bind="foreach: goals">
                         <tr>
-                            <td><input type="checkbox"></td>
+                            <td><input data-bind="value:$data, checked:$parent.selectedGoals" type="checkbox"></td>
                             <td data-bind="text: name"></td>
                             <td data-bind="text: type"></td>
                             <td data-bind="text: deadline"></td>
