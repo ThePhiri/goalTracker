@@ -30,7 +30,10 @@
                     <input data-bind="value: goalInputDeadline" type="date" id="deadline" class="form-conrol" placeholder="Enter Goal">
             </div>
             <div class="col-md-3">
-                <button data-bind="click: addGoal, enable:goalInputName " class="bcheckboxtn btn-primary">Add Goal</button>
+                
+                <button data-bind="click: addGoal, enable:goalInputName, visible:!isUpdate() " class="btn btn-primary">Add Goal</button>
+                <button data-bind="click: updateGoal, enable:goalInputName, visible:isUpdate " class="btn btn-primary">Update Goal</button>
+                <button data-bind="click: editSelected, enable:canEdit " class="btn btn-info">Edit Goal</button>
                 <button data-bind="click: deleteSelected, enable: canEdit" class="btn btn-danger">Delete Goal</button>
             </div>
         </div>
