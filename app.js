@@ -63,5 +63,7 @@ app.delete('/goals/:id', function(req, res){
 	});
 });
 
-app.listen(3000);
-console.log('running on port 3000...');
+var server = app.listen(process.env.PORT || 5000), function() {
+	var port = server.address().port;
+	console.log("Express is working on port " + port);
+}
