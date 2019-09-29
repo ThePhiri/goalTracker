@@ -1,5 +1,5 @@
 function getGoals(){
-    $.get('http://localhost:3000/goals', function(data){
+    $.get('https://radiant-forest-54786.herokuapp.com/goals', function(data){
         viewModel.goals(data);
     })
 }
@@ -30,7 +30,7 @@ function ViewModel(){
 
         $.ajax(
             {
-                url: "http://localhost:3000/goals",
+                url: "https://radiant-forest-54786.herokuapp.com/goals",
                 data: JSON.stringify({
                     "name": name,
                     "type": type,
@@ -63,7 +63,7 @@ function ViewModel(){
 
         $.ajax(
             {
-                url: "http://localhost:3000/goals/"+id,
+                url: "https://radiant-forest-54786.herokuapp.com/goals/"+id,
                 data: JSON.stringify({
                     "name": name,
                     "type": type,
@@ -95,7 +95,7 @@ function ViewModel(){
         $.each(self.selectedGoals(), function(index, value){
             var id = self.selectedGoals()[index]._id;
             $.ajax({
-                url: "http://localhost:3000/goals/"+id,
+                url: "https://radiant-forest-54786.herokuapp.com/goals/"+id,
                 type: "DELETE",
                 async: true,
                 timeout: 300000,
