@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node app.js"
+  },
+  
   "name": "goaltracker",
   "version": "1.0.0",
   "description": "Simple goal track app",

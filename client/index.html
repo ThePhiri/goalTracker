@@ -9,16 +9,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
 </head>
 
 <body onload="getGoals()">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-        <a class="navbar-brand" href="#">Goal Tracker</a>
+        <a class="navbar-brand" href="#">Community Goal Tracker</a>
 
     </nav>
 
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Add your goal for all to see</h1>
+                <h2 class="text-center">Encourage others by adding your goals</h2>
+                <hr> 
+            </div>
+               
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <input data-bind="value: goalInputName, valueUpdate:'keypress'" type="text" id="name" class="form-conrol" placeholder="Enter Goal">
@@ -31,10 +39,13 @@
             </div>
             <div class="col-md-3">
                 
-                <button data-bind="click: addGoal, enable:goalInputName, visible:!isUpdate() " class="btn btn-primary">Add Goal</button>
-                <button data-bind="click: updateGoal, enable:goalInputName, visible:isUpdate " class="btn btn-primary">Update Goal</button>
-                <button data-bind="click: editSelected, enable:canEdit " class="btn btn-info">Edit Goal</button>
-                <button data-bind="click: deleteSelected, enable: canEdit" class="btn btn-danger">Delete Goal</button>
+                <button data-bind="click: addGoal, enable:goalInputName, visible:!isUpdate() " class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+                <button data-bind="click: updateGoal, enable:goalInputName, visible:isUpdate " class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i>
+                </button>
+                <button data-bind="click: editSelected, enable:canEdit " class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+                <button data-bind="click: deleteSelected, enable: canEdit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
             </div>
         </div>
         <div class="row">

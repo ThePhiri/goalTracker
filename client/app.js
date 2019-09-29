@@ -111,7 +111,7 @@ function ViewModel(){
         self.selectedGoals.removeAll()
     }
 
-    self.types = ko.observableArray(['Health & Fitness', 'Professional', 'Relationships', 'Monetary', 'Saving'])
+    self.types = ko.observableArray(['Health & Fitness', 'Professional', 'Relationships', 'Monetary', 'Saving', 'Other'])
 }
 
 var viewModel = new ViewModel();
